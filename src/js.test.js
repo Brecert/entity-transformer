@@ -55,8 +55,7 @@ Deno.test("parser #1", () => {
 
 Deno.test("transformer #1", () => {
   const transformers = {
-    bold: (text, entity, entities) =>
-      `(b '${build(text, entity, entities)}')`,
+    bold: (text, entity, entities) => `(b '${build(text, entity, entities)}')`,
     underline: (text, entity, entities) =>
       `(u '${build(text, entity, entities)}')`,
     color: (text, entity, entities) =>
@@ -67,7 +66,7 @@ Deno.test("transformer #1", () => {
 
   const build = (text, entity) => {
     if (entity.children != null) {
-      return parse(entityParser(text, entity.children)).join('');
+      return parse(entityParser(text, entity.children)).join("");
     } else if (text != null) {
       return text;
     } else {
